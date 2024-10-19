@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainInteractionScreen">
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.65" />
+
+    <EditText
+        android:id="@+id/log_textField"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="20dp"
+        android:editable="false"
+        android:ems="10"
+        android:fadeScrollbars="false"
+        android:gravity="start|top"
+        android:isScrollContainer="true"
+        android:overScrollMode="always"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbars="vertical"
+        android:singleLine="false"
+        android:textAlignment="textStart"
+        android:textSize="13sp"
+        android:verticalScrollbarPosition="right"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/deployment_View"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:isScrollContainer="true"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Network"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:labelFor="@id/instance_scrollView"
+            android:text="Instance"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@id/instance_scrollView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/network_scrollView" />
+
+        <ScrollView
+            android:id="@+id/network_scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            app:layout_constraintVertical_weight="1">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fadeScrollbars="false">
+
+                <EditText
+                    android:id="@+id/network_name_textField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_margin="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toTopOf="@+id/subnet_name_textField"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/subnet_name_textField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_margin="20dp"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toTopOf="@id/network_address_textField"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/network_name_textField" />
+
+                <EditText
+                    android:id="@+id/network_address_textField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_margin="20dp"
+                    android:ems="10"
+                    android:hint="192.168.1.0/24"
+                    android:inputType="text"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toTopOf="@id/static_IP_textField"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/subnet_name_textField" />
+
+                <EditText
+                    android:id="@+id/static_IP_textField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_margin="20dp"
+                    android:ems="10"
+                    android:hint="192.168.1.11"
+                    android:inputType="text"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toTopOf="@id/create_network_button"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/network_address_textField" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:labelFor="@id/subnet_name_textField"
+                    android:text="Subnet name"
+                    app:layout_constraintBottom_toBottomOf="@id/subnet_name_textField"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/subnet_name_textField" />
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:labelFor="@id/network_address_textField"
+                    android:text="Network Address"
+                    app:layout_constraintBottom_toBottomOf="@id/network_address_textField"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/network_address_textField" />
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:labelFor="@id/static_IP_textField"
+                    android:text="Static IP"
+                    app:layout_constraintBottom_toBottomOf="@id/static_IP_textField"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/static_IP_textField" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:labelFor="@id/network_name_textField"
+                    android:text="Network name"
+                    app:layout_constraintBottom_toBottomOf="@+id/network_name_textField"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/network_name_textField" />
+
+                <Button
+                    android:id="@+id/create_network_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_margin="20dp"
+                    android:text="Create"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/static_IP_textField" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <ScrollView
+            android:id="@+id/instance_scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            app:layout_constraintVertical_weight="1">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fadeScrollbars="false">
+
+                <Spinner
+                    android:id="@+id/images_selectionView"
+                    android:layout_width="165dp"
+                    android:layout_height="48dp"
+                    android:layout_margin="20dp"
+                    app:layout_constraintBottom_toTopOf="@id/flavors_selectionView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Spinner
+                    android:id="@+id/flavors_selectionView"
+                    android:layout_width="165dp"
+                    android:layout_height="48dp"
+                    android:layout_margin="20dp"
+                    app:layout_constraintBottom_toTopOf="@id/security_groups_selectionView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/images_selectionView" />
+
+                <Spinner
+                    android:id="@+id/security_groups_selectionView"
+                    android:layout_width="165dp"
+                    android:layout_height="48dp"
+                    android:layout_margin="20dp"
+                    app:layout_constraintBottom_toTopOf="@id/instance_name_textField"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/flavors_selectionView" />
+
+                <EditText
+                    android:id="@+id/instance_name_textField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_margin="20dp"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toTopOf="@id/port_ID_selectionView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/security_groups_selectionView" />
+
+                <Spinner
+                    android:id="@+id/port_ID_selectionView"
+                    android:layout_width="165dp"
+                    android:layout_height="53dp"
+                    android:layout_margin="20dp"
+                    app:layout_constraintBottom_toTopOf="@id/custom_script_multiLineTextFied"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/instance_name_textField" />
+
+                <EditText
+                    android:id="@+id/custom_script_multiLineTextFied"
+                    android:layout_width="wrap_content"
+                    android:layout_height="96dp"
+                    android:layout_margin="20dp"
+                    android:ems="10"
+                    android:gravity="start|top"
+                    android:inputType="textMultiLine"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toTopOf="@id/create_instance_button"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/port_ID_selectionView" />
+
+                <Button
+                    android:id="@+id/create_instance_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_margin="20dp"
+                    android:text="Create"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/custom_script_multiLineTextFied" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:text="Images"
+                    app:layout_constraintBottom_toBottomOf="@+id/images_selectionView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/images_selectionView" />
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:text="Flavors"
+                    app:layout_constraintBottom_toBottomOf="@+id/flavors_selectionView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/flavors_selectionView" />
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:text="Security Group"
+                    app:layout_constraintBottom_toBottomOf="@+id/security_groups_selectionView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/security_groups_selectionView" />
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:text="Instance Name"
+                    app:layout_constraintBottom_toBottomOf="@+id/instance_name_textField"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/instance_name_textField" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:labelFor="@id/port_ID_selectionView"
+                    android:text="Port ID"
+                    app:layout_constraintBottom_toBottomOf="@+id/port_ID_selectionView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/port_ID_selectionView" />
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:layout_marginBottom="29dp"
+                    android:labelFor="@id/custom_script_multiLineTextFied"
+                    android:text="Custom Script"
+                    app:layout_constraintBottom_toBottomOf="@+id/custom_script_multiLineTextFied"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/custom_script_multiLineTextFied" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:labelFor="@id/log_textField"
+        android:text="Logs"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:labelFor="@id/deployment_View"
+        android:text="Deployment"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
